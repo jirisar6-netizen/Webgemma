@@ -6,7 +6,7 @@ export default function AISS_Dashboard() {
   const [status, setStatus] = useState('Čekám na příkaz...');
   
   // Tvoje data z fotek
-  const GEMMA_URL = "https://norman-front-kirk-handed.trycloudflare.com";
+  const GEMMA_URL = "https://respective-tales-sue-courier.trycloudflare.com";
   const ADMIN_NAME = "Jiří";
 
   const testConnection = async () => {
