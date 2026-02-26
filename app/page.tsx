@@ -1,49 +1,62 @@
-// [AUDIT_ID]: AISS-OS-CORE-001 | Tata-OS Dashboard
+// [AUDIT_ID]: AISS-OS-INDEX-001 | Tata-OS Core
 import React, { useState } from 'react';
 
-export default function AISS_OS_Dashboard() {
-  // Tvoje aktuální adresa z posledního screenshotu
-  const GEMMA_URL = "https://prepaid-particular-timber-nextel.trycloudflare.com/api/chat";
-  const SEATABLE_TOKEN = "93d62495e34f96730c32f8b32bb02ca80bdff9ad"; //
-
-  const [status, setStatus] = useState('Checking...');
+export default function Home() {
+  // Data z tvých posledních screenshotů a historie
+  const CONFIG = {
+    GEMMA_URL: "https://prepaid-particular-timber-nextel.trycloudflare.com", //
+    SEATABLE_TOKEN: "93d62495e34f96730c32f8b32bb02ca80bdff9ad", //
+    ADMIN: "mallfuriionn@gmail.com",
+    BIRTHDAY: "2026-03-06" //
+  };
 
   return (
-    <div style={{ 
+    <div style={{
       backgroundColor: '#300a24', // Ubuntu Purple
-      color: 'white', 
-      minHeight: '100vh', 
-      padding: '20px',
-      fontFamily: 'Ubuntu, sans-serif'
+      color: 'white',
+      minHeight: '100vh',
+      fontFamily: 'Ubuntu, sans-serif',
+      padding: '40px'
     }}>
-      <header style={{ borderBottom: '2px solid #E95420', paddingBottom: '10px' }}>
-        <h1>AISS-OS <span style={{ fontSize: '0.5em' }}>v1.0</span></h1>
-        <p>Admin: mallfuriionn@gmail.com | Device: Xiaomi 13T Pro</p>
+      <header style={{ borderBottom: '3px solid #E95420', marginBottom: '30px' }}>
+        <h1 style={{ fontSize: '3rem', margin: 0 }}>AISS-OS <span style={{ fontSize: '0.4em', verticalAlign: 'middle' }}>LIVE</span></h1>
+        <p style={{ color: '#E95420', fontWeight: 'bold' }}>Admin: Jiří (Táta Jiříka a Štěpánka)</p>
       </header>
 
-      <main style={{ marginTop: '30px' }}>
-        <div style={{ background: '#5E2750', padding: '15px', borderRadius: '8px' }}>
-          <h3>Status Systému</h3>
-          <ul>
-            <li><strong>Gemma 2:</strong> {GEMMA_URL ? '📡 Connected' : '❌ Disconnected'}</li>
-            <li><strong>Model:</strong> gemma2:2b</li>
-            <li><strong>SeaTable:</strong> Active</li>
-          </ul>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+        {/* Status Panel */}
+        <div style={{ background: '#5E2750', padding: '20px', borderRadius: '15px', border: '1px solid #772953' }}>
+          <h2>📡 Status Vysílače</h2>
+          <p><strong>Zařízení:</strong> Xiaomi 13T Pro</p>
+          <p><strong>Tunel:</strong> <code style={{ fontSize: '0.8em' }}>{CONFIG.GEMMA_URL}</code></p>
+          <p><strong>Věk:</strong> 35 let (36 bude 6. března)</p>
         </div>
 
-        <section style={{ marginTop: '20px' }}>
-          <button 
-            onClick={() => alert('Odesílám ping na Gemmu...')}
-            style={{ backgroundColor: '#E95420', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            Aktivovat Agenta Správce
-          </button>
-        </section>
-      </main>
+        {/* Info Panel */}
+        <div style={{ background: '#5E2750', padding: '20px', borderRadius: '15px', border: '1px solid #772953' }}>
+          <h2>👶 Rodina</h2>
+          <p><strong>Jiřík:</strong> V mé péči</p>
+          <p><strong>Štěpánek:</strong> Žije u matky</p>
+          <p><strong>Stav:</strong> Bez přítelkyně (Single)</p>
+        </div>
+      </div>
 
-      <footer style={{ marginTop: '50px', fontSize: '0.8em', opacity: 0.7 }}>
-        Pro Jiříka a Štěpánka | 2026 AISS-OS
-      </footer>
+      <div style={{ marginTop: '40px', textAlign: 'center' }}>
+        <button 
+          onClick={() => window.open(`${CONFIG.GEMMA_URL}/api/tags`, '_blank')}
+          style={{
+            backgroundColor: '#E95420',
+            color: 'white',
+            padding: '15px 30px',
+            border: 'none',
+            borderRadius: '50px',
+            fontSize: '1.2rem',
+            cursor: 'pointer',
+            boxShadow: '0 5px 15px rgba(0,0,0,0.4)'
+          }}>
+          Spustit Diagnostiku Gemmy
+        </button>
+      </div>
     </div>
   );
 }
